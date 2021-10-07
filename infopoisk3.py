@@ -7,7 +7,6 @@ from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer
 from pymorphy2 import MorphAnalyzer
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 
 def preprocess_corpus(filename):
@@ -98,7 +97,7 @@ def index_query(query):
     return count_vectorizer.transform([query])
 
 def cos_sim(sp_matrix, query_vec):
-    return cosine_similarity(sp_matrix, query_vec)
+    return np.dot(sp_matrix, query_vec.T).toarray()
 
 def search_query(query, sp_matrix, docs_array):
     query_vec = index_query(query)
