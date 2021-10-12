@@ -109,7 +109,6 @@ def search_query(query, sp_matrix, docs_array):
 if __name__ == "__main__":
     tokenizer = RegexpTokenizer(r'[\w-]+')
     morph = MorphAnalyzer()
-    vectorizer = TfidfVectorizer(analyzer='word')
     stops = set(stopwords.words('russian'))
     
     count_vectorizer, sparse_matrix, docs_array = index_corpus('questions_about_love.jsonl')
