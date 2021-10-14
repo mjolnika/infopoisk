@@ -245,4 +245,9 @@ if __name__ == "__main__":
                 preprocessed_questions = preprocess_docs(questions, vectorization)
             
             scores = count_score(preprocessed_corpus, preprocessed_questions, vectorization)
+            #countvectorizer: 0.0526
+            #tfidf: 0.0808
+            #bm25: 0.0766
+            #fasttext: 0.0559
+            #bert: 0.0064
             print(f'{vec_type}: {scores}')
